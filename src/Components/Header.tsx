@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser } from "../context";
+import { useUser } from "../Hooks/context";
 
 const Header: React.FC = () => {
   const { name, loggedIn } = useUser();
