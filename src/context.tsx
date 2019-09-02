@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-export const UserContext = React.createContext<any>(null);
+const UserContext = React.createContext<any>(null);
 
-interface IUser {
-  user: any;
-  logUserIn: any;
-}
 interface IProps {
   children: any;
 }
@@ -15,11 +11,24 @@ const UserContextProvider: React.FC<IProps> = ({ children }) => {
     name: "Minjae",
     loggedIn: false
   });
-  const logUserIn = () => setUser({ ...user, loggedIn: true });
+  const logUserIn = () => {
+    console.log("user");
+    setUser({ ...user, loggedIn: true });
+  };
   return (
-    <UserContext.Provider value={{ user, logUserIn }}>
+    <UserContext.Provider value={{ user, fn: { logUserIn } }}>
       {children}
     </UserContext.Provider>
   );
 };
+
+export const useUser = () => {
+  const { user } = useContext(UserContext);
+  return user;
+};
+export const useFns = () => {
+  const { fn } = useContext(UserContext);
+  return fn;
+};
+
 export default UserContextProvider;
