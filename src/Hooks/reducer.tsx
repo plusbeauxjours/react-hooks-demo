@@ -1,8 +1,10 @@
 import { useReducer, useState } from "react";
+import uuid from "uuid/v4";
 
 export const INCREMENT = "increment";
 export const DECREMENT = "decrement";
 export const ADD = "add";
+export const DELETE = "delete";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +42,11 @@ export const toDoReducer = (
 ) => {
   switch (action.type) {
     case ADD:
-      return { toDos: [...state.toDos, { text: action.payload }] };
+      return { toDos: [...state.toDos, { text: action.payload, id: uuid() }] };
+    case DELETE:
+      return {
+        toDos: state.toDos.filter((toDo: any) => toDo.id !== action.payload)
+      };
     default:
       return;
   }
@@ -57,7 +63,13 @@ export const useToDo = () => {
   const [newToDo, setNewToDo] = useState("");
   const onSubmit = (e: any) => {
     e.preventDefault();
-    dispatch({ type: ADD, payload: newToDo });
+    if (newToDo !== "") {
+      dispatch({ type: ADD, payload: newToDo });
+      setNewToDo("");
+    }
+  };
+  const onDelete = (id: string) => {
+    dispatch({ type: DELETE, payload: id });
   };
   const onChange = (e: any) => {
     const {
@@ -65,5 +77,5 @@ export const useToDo = () => {
     } = e;
     setNewToDo(value);
   };
-  return { state, newToDo, onSubmit, onChange };
+  return { state, newToDo, onSubmit, onDelete, onChange };
 };

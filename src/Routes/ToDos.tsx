@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useCounter, INCREMENT, DECREMENT, useToDo } from "../Hooks/reducer";
-import { ToolbarAndroidBase } from "react-native";
+import { useToDo } from "../Hooks/reducer";
 
 const Container = styled.div`
   display: flex;
@@ -13,14 +12,21 @@ const Container = styled.div`
 const List = styled.ul`
   margin-top: 10px;
 `;
-const Item = styled.li``;
+const Item = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+`;
 const Form = styled.form`
   margin-top: 10px;
 `;
 const Input = styled.input``;
+const Delete = styled.span`
+  cursor: pointer;
+`;
 
 const ToDos = () => {
-  const { state, newToDo, onSubmit, onChange } = useToDo();
+  const { state, newToDo, onSubmit, onDelete, onChange } = useToDo();
   return (
     <Container>
       Add to do
@@ -35,8 +41,10 @@ const ToDos = () => {
       <List>
         To Dos
         {state &&
-          state.toDos.map((toDo, index) => (
-            <Item key={index}>{toDo.text}</Item>
+          state.toDos.map((toDo: any) => (
+            <Item key={toDo.id}>
+              {toDo.text} <Delete onClick={() => onDelete(toDo.id)}>❌</Delete>
+            </Item>
           ))}
       </List>
     </Container>
