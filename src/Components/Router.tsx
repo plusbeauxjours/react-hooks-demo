@@ -8,7 +8,7 @@ import {
 import Header from "./Header";
 import Home from "../Routes/Home";
 import Screen from "../Routes/Screen";
-import Reducer from "../Routes/Counter";
+import Counter from "../Routes/Counter";
 import ToDos from "../Routes/ToDos";
 
 interface IProps {
@@ -23,7 +23,7 @@ const AppRouter = () => (
     <Switch>
       <Route path="/" exact={true} component={Home} />
       <Route path="/context" component={Screen} />
-      <Route path="/reducer" component={Reducer} />
+      <Route path="/counter" component={Counter} />
       <Route path="/todos" component={ToDos} />
       <Redirect from="*" to="/" />
     </Switch>

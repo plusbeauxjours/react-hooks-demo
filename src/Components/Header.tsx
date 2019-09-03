@@ -24,7 +24,7 @@ const Home = () => (
       <Link to={"/context"}>CONTEXT</Link>
     </Item>
     <Item>
-      <Link to={"/reducer"}>REDUCER</Link>
+      <Link to={"/counter"}>COUNTER</Link>
     </Item>
     <Item>
       <Link to={"/todos"}>TODOS</Link>

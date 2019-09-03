@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { useCounter, INCREMENT, DECREMENT } from "../Hooks/reducer";
+import { useReducer } from "react";
+import {
+  initialState,
+  reducer,
+  INCREMENT,
+  DECREMENT
+} from "../Reducer/counterReducer";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +22,7 @@ const Item = styled.div`
 const Btn = styled.button``;
 
 const Counter = () => {
-  const { state, dispatch } = useCounter();
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <Container>
       {state.count}
