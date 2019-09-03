@@ -9,6 +9,7 @@ import Header from "./Header";
 import Home from "../Routes/Home";
 import Screen from "../Routes/Screen";
 import Reducer from "../Routes/Counter";
+import ToDos from "../Routes/ToDos";
 
 interface IProps {
   isLoggedIn: boolean;
@@ -23,6 +24,7 @@ const AppRouter = () => (
       <Route path="/" exact={true} component={Home} />
       <Route path="/context" component={Screen} />
       <Route path="/reducer" component={Reducer} />
+      <Route path="/todos" component={ToDos} />
       <Redirect from="*" to="/" />
     </Switch>
   </Router>

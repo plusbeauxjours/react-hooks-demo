@@ -26,6 +26,9 @@ const Home = () => (
     <Item>
       <Link to={"/reducer"}>REDUCER</Link>
     </Item>
+    <Item>
+      <Link to={"/todos"}>TODOS</Link>
+    </Item>
   </Container>
 );
 
