@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+`;
 
 const Home = () => (
-  <>
-    <Link to={"/context"}>
-      <h1>CONTEXT</h1>
-    </Link>
-    <Link to={"/reducer"}>
-      <h1>REDUCER</h1>
-    </Link>
-  </>
+  <Container>
+    <h1>YO</h1>
+  </Container>
 );
 
 export default Home;
