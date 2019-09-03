@@ -8,7 +8,7 @@ import {
 import Header from "./Header";
 import Home from "../Routes/Home";
 import Screen from "../Routes/Screen";
-import Reducer from "../Routes/Reducer";
+import Reducer from "../Routes/Counter";
 
 interface IProps {
   isLoggedIn: boolean;

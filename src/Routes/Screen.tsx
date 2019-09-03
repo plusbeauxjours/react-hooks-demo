@@ -11,7 +11,9 @@ const Container = styled.div`
   margin-top: 300px;
 `;
 
-const Item = styled.div``;
+const Item = styled.div`
+  margin-top: 10px;
+`;
 const Btn = styled.button``;
 
 const Screen: React.FC = () => {

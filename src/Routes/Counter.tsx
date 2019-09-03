@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useCounter, INCREMENT, DECREMENT } from "../Hooks/counter";
+import { useCounter, INCREMENT, DECREMENT } from "../Hooks/reducer";
 
 const Container = styled.div`
   display: flex;
@@ -10,17 +10,20 @@ const Container = styled.div`
   margin-top: 300px;
 `;
 
-const Btn = styled.button`
+const Item = styled.div`
   margin-top: 10px;
 `;
+const Btn = styled.button``;
 
 const Counter = () => {
   const { state, dispatch } = useCounter();
   return (
     <Container>
       {state.count}
-      <Btn onClick={() => dispatch({ type: INCREMENT })}>add</Btn>
-      <Btn onClick={() => dispatch({ type: DECREMENT })}>remove</Btn>
+      <Item>
+        <Btn onClick={() => dispatch({ type: INCREMENT })}>ADD</Btn>
+        <Btn onClick={() => dispatch({ type: DECREMENT })}>REMOVE</Btn>
+      </Item>
     </Container>
   );
 };

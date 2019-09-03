@@ -18,6 +18,9 @@ const Item = styled.div`
 const Home = () => (
   <Container>
     <Item>
+      <Link to={"/"}>HOME</Link>
+    </Item>
+    <Item>
       <Link to={"/context"}>CONTEXT</Link>
     </Item>
     <Item>
