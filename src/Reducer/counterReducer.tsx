@@ -1,5 +1,4 @@
-export const INCREMENT = "increment";
-export const DECREMENT = "decrement";
+import { INCREMENT, DECREMENT } from "../actions";
 
 export const initialState = {
   count: 0

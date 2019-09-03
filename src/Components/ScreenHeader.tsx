@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser, useT } from "../Hooks/context";
+import { useUser, useT } from "../Context/context";
 import styled from "styled-components";
 
 const Container = styled.div`

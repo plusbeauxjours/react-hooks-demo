@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./Header";
 import Home from "../Routes/Home";
-import Screen from "../Routes/Screen";
+import Translate from "../Routes/Translate";
 import Counter from "../Routes/Counter";
 import ToDos from "../Routes/ToDos";
 
@@ -22,7 +22,7 @@ const AppRouter = () => (
     <Header />
     <Switch>
       <Route path="/" exact={true} component={Home} />
-      <Route path="/context" component={Screen} />
+      <Route path="/translate" component={Translate} />
       <Route path="/counter" component={Counter} />
       <Route path="/todos" component={ToDos} />
       <Redirect from="*" to="/" />

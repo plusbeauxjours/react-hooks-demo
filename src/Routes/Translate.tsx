@@ -1,6 +1,6 @@
 import React from "react";
 import ScreenHeader from "../Components/ScreenHeader";
-import { useFns, useSetLang, useT } from "../Hooks/context";
+import { useFns, useSetLang, useT } from "../Context/context";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -16,7 +16,7 @@ const Item = styled.div`
 `;
 const Btn = styled.button``;
 
-const Screen: React.FC = () => {
+const Translate: React.FC = () => {
   const { logUserIn } = useFns();
   const setLang = useSetLang();
   const t = useT();
@@ -31,4 +31,4 @@ const Screen: React.FC = () => {
   );
 };
 
-export default Screen;
+export default Translate;

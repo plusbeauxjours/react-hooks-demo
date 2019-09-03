@@ -1,17 +1,19 @@
 import React from "react";
 import GlobalStyles from "./global-styles";
-import { UserContextProvider } from "./Hooks/context";
-import { LangContextProvider } from "./Hooks/context";
-import translations from "./Hooks/translations";
+import { UserContextProvider, ToDosContextProvider } from "./Context/context";
+import { LangContextProvider } from "./Context/context";
+import translations from "./translations";
 import AppRouter from "./Components/Router";
 
 const App: React.FC = () => (
-  <LangContextProvider defaultLang={"en"} translations={translations}>
-    <UserContextProvider>
-      <GlobalStyles />
-      <AppRouter />
-    </UserContextProvider>
-  </LangContextProvider>
+  <ToDosContextProvider>
+    <LangContextProvider defaultLang={"en"} translations={translations}>
+      <UserContextProvider>
+        <GlobalStyles />
+        <AppRouter />
+      </UserContextProvider>
+    </LangContextProvider>
+  </ToDosContextProvider>
 );
 
 export default App;

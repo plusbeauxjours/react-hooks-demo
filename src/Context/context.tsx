@@ -1,7 +1,10 @@
 import React, { useState, useContext, createContext } from "react";
+import { useReducer } from "react";
+import { reducer, initialState } from "../Reducer/toDosReducer";
 
 const UserContext = createContext<any>(null);
 const LangContext = createContext<any>(null);
+const ToDosContext = createContext<any>(null);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -12,6 +15,9 @@ interface ILang {
   defaultLang: string;
   children: any;
   translations: any;
+}
+interface IToDos {
+  children: any;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,6 +57,15 @@ export const LangContextProvider: React.FC<ILang> = ({
   );
 };
 
+export const ToDosContextProvider: React.FC<IToDos> = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <ToDosContext.Provider value={{ state, dispatch }}>
+      {children}
+    </ToDosContext.Provider>
+  );
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const useUser = () => {
@@ -68,4 +83,20 @@ export const useSetLang = () => {
 export const useT = () => {
   const { t } = useContext(LangContext);
   return t;
+};
+export const useDispatch = () => {
+  const { dispatch } = useContext(ToDosContext);
+  return dispatch;
+};
+export const useToDos = () => {
+  const {
+    state: { toDos }
+  } = useContext(ToDosContext);
+  return toDos;
+};
+export const useCompleted = () => {
+  const {
+    state: { completed }
+  } = useContext(ToDosContext);
+  return completed;
 };

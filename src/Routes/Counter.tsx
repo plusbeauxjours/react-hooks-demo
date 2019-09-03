@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useReducer } from "react";
-import {
-  initialState,
-  reducer,
-  INCREMENT,
-  DECREMENT
-} from "../Reducer/counterReducer";
+import { INCREMENT, DECREMENT } from "../actions";
+import { initialState, reducer } from "../Reducer/counterReducer";
 
 const Container = styled.div`
   display: flex;

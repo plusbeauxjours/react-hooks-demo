@@ -21,7 +21,7 @@ const Home = () => (
       <Link to={"/"}>HOME</Link>
     </Item>
     <Item>
-      <Link to={"/context"}>CONTEXT</Link>
+      <Link to={"/translate"}>TRANSLATE</Link>
     </Item>
     <Item>
       <Link to={"/counter"}>COUNTER</Link>
