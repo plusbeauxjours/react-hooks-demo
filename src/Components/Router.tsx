@@ -10,6 +10,7 @@ import Home from "../Routes/Home";
 import Translate from "../Routes/Translate";
 import Counter from "../Routes/Counter";
 import ToDos from "../Routes/ToDos";
+import Input from "../Routes/Input";
 
 interface IProps {
   isLoggedIn: boolean;
@@ -25,6 +26,8 @@ const AppRouter = () => (
       <Route path="/translate" component={Translate} />
       <Route path="/counter" component={Counter} />
       <Route path="/todos" component={ToDos} />
+      <Route path="/input" component={Input} />
+
       <Redirect from="*" to="/" />
     </Switch>
   </Router>

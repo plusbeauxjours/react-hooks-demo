@@ -29,6 +29,9 @@ const Home = () => (
     <Item>
       <Link to={"/todos"}>TODOS</Link>
     </Item>
+    <Item>
+      <Link to={"/input"}>INPUT</Link>
+    </Item>
   </Container>
 );
 
