@@ -7,6 +7,7 @@ import useTitle from "../Hooks/useTitle ";
 import useClick from "../Hooks/useClick";
 import useConfirm from "../Hooks/useConfirm";
 import usePreventLeave from "../Hooks/usePreventLeave";
+import useBeforeLeave from "../Hooks/useBeforeLeave";
 
 const Container = styled.div`
   display: flex;
@@ -44,6 +45,8 @@ const Effect = () => {
 
   const { enablePrevent, disablePrevent } = usePreventLeave();
 
+  const begForLife = () => console.log("Plz dont leave");
+
   return (
     <Container>
       {/* ///////////////////////////////////////////////////////useInput */}
@@ -64,6 +67,7 @@ const Effect = () => {
 
       {/* ///////////////////////////////////////////////////////useClick */}
       <Bold>useClick</Bold>
+      <p>Console.log when it's clicked</p>
       <Btn ref={title}>useClick</Btn>
 
       {/* ///////////////////////////////////////////////////////useConfirm */}
@@ -74,6 +78,10 @@ const Effect = () => {
       <Bold>usePreventLeave</Bold>
       <Btn onClick={enablePrevent}>Protect</Btn>
       <Btn onClick={disablePrevent}>Unprotect</Btn>
+
+      {/* ///////////////////////////////////////////////////////useBeforeLeave */}
+      <Bold>useBeforeLeave</Bold>
+      {useBeforeLeave(begForLife)}
     </Container>
   );
 };
