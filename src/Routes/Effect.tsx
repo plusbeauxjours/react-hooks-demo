@@ -11,6 +11,7 @@ import useBeforeLeave from "../Hooks/useBeforeLeave";
 import useFadeIn from "../Hooks/useFadeIn";
 import useNetwork from "../Hooks/useNetwork";
 import useScroll from "../Hooks/useScroll";
+import useNotification from "../Hooks/useNotification";
 
 const Container = styled.div`
   display: flex;
@@ -55,6 +56,8 @@ const Effect = () => {
   const { isOnline } = useNetwork();
 
   const { x, y } = useScroll();
+
+  const triggerNotif = useNotification("NOTI", { body: "GO" });
   return (
     <Container>
       <Bold>useInput</Bold>
@@ -93,6 +96,9 @@ const Effect = () => {
       <Bold>useScroll</Bold>
       <p>X position: {x}</p>
       <p>Y position: {y}</p>
+
+      <Bold>useNotification</Bold>
+      <Btn onClick={triggerNotif}>useConfirmDelete</Btn>
     </Container>
   );
 };
