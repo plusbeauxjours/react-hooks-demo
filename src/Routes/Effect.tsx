@@ -6,6 +6,7 @@ import { content } from "../Hooks/useTabs";
 import useTitle from "../Hooks/useTitle ";
 import useClick from "../Hooks/useClick";
 import useConfirm from "../Hooks/useConfirm";
+import usePreventLeave from "../Hooks/usePreventLeave";
 
 const Container = styled.div`
   display: flex;
@@ -37,13 +38,11 @@ const Effect = () => {
   const sayHello = () => console.log("say hello");
   const title = useClick(sayHello);
 
-  const deleteWorld = () => {
-    console.log("deleting the world");
-  };
-  const abort = () => {
-    console.log("aborted");
-  };
+  const deleteWorld = () => console.log("deleting the world");
+  const abort = () => console.log("aborted");
   const useConfirmDelete = useConfirm("are you sure", deleteWorld, abort);
+
+  const { enablePrevent, disablePrevent } = usePreventLeave();
 
   return (
     <Container>
@@ -71,7 +70,10 @@ const Effect = () => {
       <Bold>useConfirm</Bold>
       <Btn onClick={useConfirmDelete}>useConfirmDelete</Btn>
 
-      {/* ///////////////////////////////////////////////////////useConfirm */}
+      {/* ///////////////////////////////////////////////////////usePreventLeave */}
+      <Bold>usePreventLeave</Bold>
+      <Btn onClick={enablePrevent}>Protect</Btn>
+      <Btn onClick={disablePrevent}>Unprotect</Btn>
     </Container>
   );
 };
