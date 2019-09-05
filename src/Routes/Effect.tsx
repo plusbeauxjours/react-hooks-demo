@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import useInput from "../Hooks/useInput";
 import useTabs from "../Hooks/useTabs";
 import { content } from "../Hooks/useTabs";
 import useTitle from "../Hooks/useTitle ";
+import useClick from "../Hooks/useClick";
+import useConfirm from "../Hooks/useConfirm";
 
 const Container = styled.div`
   display: flex;
@@ -27,8 +29,22 @@ const Bold = styled.p`
 const Effect = () => {
   const noAt = (value: any) => !value.includes("@");
   const name = useInput("Mr.", noAt);
+
   const { currentItem, changeItem } = useTabs(0, content);
+
   const titleUpdater = useTitle("Loading...");
+
+  const sayHello = () => console.log("say hello");
+  const title = useClick(sayHello);
+
+  const deleteWorld = () => {
+    console.log("deleting the world");
+  };
+  const abort = () => {
+    console.log("aborted");
+  };
+  const useConfirmDelete = useConfirm("are you sure", deleteWorld, abort);
+
   return (
     <Container>
       {/* ///////////////////////////////////////////////////////useInput */}
@@ -42,11 +58,20 @@ const Effect = () => {
         ))}
       </BtnContainer>
       <div>{currentItem.content}</div>
+
       {/* ///////////////////////////////////////////////////////useTitle */}
       <Bold>useTitle</Bold>
       <p>Title will be changed in 1sec</p>
+
       {/* ///////////////////////////////////////////////////////useClick */}
       <Bold>useClick</Bold>
+      <Btn ref={title}>useClick</Btn>
+
+      {/* ///////////////////////////////////////////////////////useConfirm */}
+      <Bold>useConfirm</Bold>
+      <Btn onClick={useConfirmDelete}>useConfirmDelete</Btn>
+
+      {/* ///////////////////////////////////////////////////////useConfirm */}
     </Container>
   );
 };
