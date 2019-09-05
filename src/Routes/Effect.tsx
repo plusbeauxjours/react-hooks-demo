@@ -9,6 +9,7 @@ import useConfirm from "../Hooks/useConfirm";
 import usePreventLeave from "../Hooks/usePreventLeave";
 import useBeforeLeave from "../Hooks/useBeforeLeave";
 import useFadeIn from "../Hooks/useFadeIn";
+import useNetwork from "../Hooks/useNetwork";
 
 const Container = styled.div`
   display: flex;
@@ -50,6 +51,8 @@ const Effect = () => {
 
   const fadeInH11 = useFadeIn(1, 2);
 
+  const { isOnline } = useNetwork();
+  console.log(navigator.onLine);
   return (
     <Container>
       <Bold>useInput</Bold>
@@ -81,6 +84,9 @@ const Effect = () => {
       {useBeforeLeave(begForLife)}
 
       <Bold {...fadeInH11}>useFadeIn</Bold>
+
+      <Bold>useNetwork</Bold>
+      <p>{isOnline ? "Online" : "Offline"}</p>
     </Container>
   );
 };
