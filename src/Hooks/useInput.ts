@@ -14,7 +14,7 @@ const useInput = (initialValue: any, validator: any) => {
       setValue(value);
     }
   };
-  return { value, onChange };
+  return { props: { value, onChange }, utils: { setValue } };
 };
 
 export default useInput;

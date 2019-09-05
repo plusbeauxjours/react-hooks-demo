@@ -8,6 +8,7 @@ import useClick from "../Hooks/useClick";
 import useConfirm from "../Hooks/useConfirm";
 import usePreventLeave from "../Hooks/usePreventLeave";
 import useBeforeLeave from "../Hooks/useBeforeLeave";
+import useFadeIn from "../Hooks/useFadeIn";
 
 const Container = styled.div`
   display: flex;
@@ -47,11 +48,12 @@ const Effect = () => {
 
   const begForLife = () => console.log("Plz dont leave");
 
+  const fadeInH11 = useFadeIn(1, 2);
+
   return (
     <Container>
-      {/* ///////////////////////////////////////////////////////useInput */}
       <Bold>useInput</Bold>
-      <input placeholder="Name" {...name} />
+      <input placeholder="Name" {...name.props} />
       <BtnContainer>
         {content.map((section, index) => (
           <Btn key={index} onClick={() => changeItem(index)}>
@@ -61,27 +63,24 @@ const Effect = () => {
       </BtnContainer>
       <div>{currentItem.content}</div>
 
-      {/* ///////////////////////////////////////////////////////useTitle */}
       <Bold>useTitle</Bold>
       <p>Title will be changed in 1sec</p>
 
-      {/* ///////////////////////////////////////////////////////useClick */}
       <Bold>useClick</Bold>
       <p>Console.log when it's clicked</p>
       <Btn ref={title}>useClick</Btn>
 
-      {/* ///////////////////////////////////////////////////////useConfirm */}
       <Bold>useConfirm</Bold>
       <Btn onClick={useConfirmDelete}>useConfirmDelete</Btn>
 
-      {/* ///////////////////////////////////////////////////////usePreventLeave */}
       <Bold>usePreventLeave</Bold>
       <Btn onClick={enablePrevent}>Protect</Btn>
       <Btn onClick={disablePrevent}>Unprotect</Btn>
 
-      {/* ///////////////////////////////////////////////////////useBeforeLeave */}
       <Bold>useBeforeLeave</Bold>
       {useBeforeLeave(begForLife)}
+
+      <Bold {...fadeInH11}>useFadeIn</Bold>
     </Container>
   );
 };
