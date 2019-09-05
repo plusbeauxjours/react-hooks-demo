@@ -21,16 +21,16 @@ const Home = () => (
       <Link to={"/"}>HOME</Link>
     </Item>
     <Item>
-      <Link to={"/translate"}>TRANSLATE</Link>
+      <Link to={"/context"}>CONTEXT</Link>
     </Item>
     <Item>
-      <Link to={"/counter"}>COUNTER</Link>
+      <Link to={"/reducer"}>REDUCER</Link>
     </Item>
     <Item>
-      <Link to={"/todos"}>TODOS</Link>
+      <Link to={"/todos"}>CONTEXT & REDUCER</Link>
     </Item>
     <Item>
-      <Link to={"/input"}>INPUT</Link>
+      <Link to={"/effect"}>EFFECT</Link>
     </Item>
   </Container>
 );

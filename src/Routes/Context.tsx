@@ -16,7 +16,7 @@ const Item = styled.div`
 `;
 const Btn = styled.button``;
 
-const Translate: React.FC = () => {
+const Context: React.FC = () => {
   const { logUserIn } = useFns();
   const setLang = useSetLang();
   const t = useT();
@@ -25,10 +25,10 @@ const Translate: React.FC = () => {
       <ScreenHeader />
       <Item>
         <Btn onClick={logUserIn}>Log user in</Btn>
-        <Btn onClick={() => setLang("es")}>{t("Translate")}</Btn>
+        <Btn onClick={() => setLang("es")}>{t("Context")}</Btn>
       </Item>
     </Container>
   );
 };
 
-export default Translate;
+export default Context;

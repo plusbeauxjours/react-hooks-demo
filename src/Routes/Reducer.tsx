@@ -17,7 +17,7 @@ const Item = styled.div`
 `;
 const Btn = styled.button``;
 
-const Counter = () => {
+const Reducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <Container>
@@ -30,4 +30,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default Reducer;

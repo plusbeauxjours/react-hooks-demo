@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import Header from "./Header";
 import Home from "../Routes/Home";
-import Translate from "../Routes/Translate";
-import Counter from "../Routes/Counter";
+import Context from "../Routes/Context";
+import Reducer from "../Routes/Reducer";
 import ToDos from "../Routes/ToDos";
-import Input from "../Routes/Input";
+import Effec from "../Routes/Effect";
 
 interface IProps {
   isLoggedIn: boolean;
@@ -23,10 +23,10 @@ const AppRouter = () => (
     <Header />
     <Switch>
       <Route path="/" exact={true} component={Home} />
-      <Route path="/translate" component={Translate} />
-      <Route path="/counter" component={Counter} />
+      <Route path="/context" component={Context} />
+      <Route path="/reducer" component={Reducer} />
       <Route path="/todos" component={ToDos} />
-      <Route path="/input" component={Input} />
+      <Route path="/effect" component={Effec} />
 
       <Redirect from="*" to="/" />
     </Switch>
