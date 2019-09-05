@@ -10,6 +10,7 @@ import usePreventLeave from "../Hooks/usePreventLeave";
 import useBeforeLeave from "../Hooks/useBeforeLeave";
 import useFadeIn from "../Hooks/useFadeIn";
 import useNetwork from "../Hooks/useNetwork";
+import useScroll from "../Hooks/useScroll";
 
 const Container = styled.div`
   display: flex;
@@ -52,7 +53,8 @@ const Effect = () => {
   const fadeInH11 = useFadeIn(1, 2);
 
   const { isOnline } = useNetwork();
-  console.log(navigator.onLine);
+
+  const { x, y } = useScroll();
   return (
     <Container>
       <Bold>useInput</Bold>
@@ -87,6 +89,10 @@ const Effect = () => {
 
       <Bold>useNetwork</Bold>
       <p>{isOnline ? "Online" : "Offline"}</p>
+
+      <Bold>useScroll</Bold>
+      <p>X position: {x}</p>
+      <p>Y position: {y}</p>
     </Container>
   );
 };
